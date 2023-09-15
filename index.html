@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+        let numPos = 0;
+        let sumPos = 0;
+        let numLarg = 0;
+        let numPosOdd = 0;
+        let numPosEven = 0;
+        let numPosOddSum = 0;
+        let numPosEvenSum = 0;
+        let numPosProd = 1;
+
+        let numNeg = 0;
+        let numSmal = 0;
+        
+        for(let i=0; i<arr.length;i++){
+            if(arr[i]>0){
+                numPos++;
+                sumPos+=arr[i];
+                numPosProd*=arr[i];
+                arr[i]>numLarg ? numLarg=arr[i] : numLarg = numLarg;
+                if (arr[i]%2===0){
+                    numPosOdd++;
+                    numPosOddSum+=arr[i];
+                }
+                else{
+                    numPosEven++;
+                    numPosEvenSum+=arr[i];
+                }
+            }
+            else {
+                numNeg++;
+                arr[i]<numSmal ? numSmal=arr[i] : numSmal = numSmal;
+            }
+        }
+
+        let arrRes = arr.map(num => num!==numLarg ? num=0 : num =numLarg)
+
+        console.log("-----------------------------------1");
+        console.log(numPos + " " + sumPos);
+
+        console.log("-----------------------------------2");
+        let numSmalIndex = arr.indexOf(numSmal);
+        console.log(numSmal + " " + numSmalIndex);
+
+        console.log("-----------------------------------3");
+        let numLargIndex = arr.indexOf(numLarg);
+        console.log(numLarg + " " + numLargIndex);
+
+        console.log("-----------------------------------4");
+        console.log(numNeg);
+
+        console.log("-----------------------------------5");
+        console.log(numPosEven);
+
+        console.log("-----------------------------------6");
+        console.log(numPosOdd);
+
+        console.log("-----------------------------------7");
+        console.log(numPosOddSum);
+
+        console.log("-----------------------------------8");
+        console.log(numPosEvenSum);
+
+        console.log("-----------------------------------9");
+        console.log(numPosProd);
+
+        console.log("-----------------------------------10");
+        console.log(arrRes);
+    </script>
+</body>
+</html>
